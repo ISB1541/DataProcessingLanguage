@@ -35,7 +35,7 @@ df = xmlToDataFrame(getNodeSet(xmlFile,"//items/item"))
 df
 
 ## 차트 그리기
-gplot(data=df.aes(x=dataTime,y=seoul)) + 
+ggplot(data=df, aes(x=dataTime,y=seoul)) + 
   geom_bar(stat="identity", fill="green") +
   theme(axis.text.x=element_text(angle=90), legend.position="none") + # x축 눈금 회전각도, 범례삭제
   labs(title="시간대별 서울지역의 미세먼지 농도 변화", x = "측정일시", y = "농도") +
