@@ -1,5 +1,8 @@
 # 11-3주차
 
+install.packages("rgl")
+library(rgl)
+
 # 몬테카를로 시뮬레이션으로 원주율 구하기
 iteration = 1000
 n_circle = 0
@@ -80,7 +83,5 @@ plot(B, cost.mtx[,idx.Amin])
 # }
 
 ## 기울기와 y절편 범위내의 3차원 비용함수 그래프
-install.packages("rgl")
-library(rgl)
 persp3d(B,A,cost.mtx)
 persp3d(B,A,cost.mtx,col="yellow", zlim=c(0,400))
