@@ -64,6 +64,7 @@ predicted$net.result
 predicted.real = predicted$net.result * (maxs[5] - mins[5]) + mins[5]
 predicted.real
 
+# º¹¿ø
 test.real = test$medv * (maxs[5] - mins[5]) + mins[5]
 test.real
 
