@@ -1,16 +1,18 @@
 # 20141689 ±Ë»£∫Û
 
+#Library
 library(igraph)
 library(dplyr)
 
 # 3 - Read Dataset
-setwd("E:/DataProcessingLanguage/resource/")
+res_path = ("E:/DataProcessingLanguage/resource/")
 file_name = "CA-HepTh.txt"
-df.fb = read.table(file_name, header = F)
+df.fb = read.table(paste(res_path, file_name, sep = ""), header = F)
 head(df.fb)
-
-# 4 - Degree, Closeness, Betweenness
 G.fb = graph.data.frame(df.fb, directed = FALSE)
+G.fb
+
+# 4 - Degree, Closeness, Betweeness
 deg = centralization.degree(G.fb, normalized = FALSE)
 clo = centralization.closeness(G.fb, normalized = FALSE)
 bet = centralization.betweenness(G.fb, normalized = FALSE)
@@ -18,7 +20,7 @@ bet = centralization.betweenness(G.fb, normalized = FALSE)
 deg_res = deg$res
 clo_res = clo$res
 bet_res = bet$res
-
+  
 deg_max = deg_res[deg_res == max(deg_res)]
 deg_max_idx = which(degree(G.fb) == deg_max)
 
@@ -32,7 +34,7 @@ print(paste("Max Degree index :", deg_max_idx))
 print(paste("Max Degree :", deg_max))
 print(paste("Min Cloness index :", clo_min_idx))
 print(paste("Min Cloness :", clo_min))
-print(paste("Max Betweeness index :", bet_max_idx))
+  print(paste("Max Betweeness index :", bet_max_idx))
 print(paste("Max Betweeness :", bet_max))
 
 # 5 - Plot
